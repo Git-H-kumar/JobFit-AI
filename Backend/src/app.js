@@ -9,6 +9,15 @@ const interviewRouter = require('./routes/interviewRoutes');
 
 
 
+/*  */
+app.use(cors({
+    origin: ['http://localhost:5173', process.env.CLIENT_URL],
+    credentials: true
+}));
+
+
+
+
 /* middleware to parse the data */
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
