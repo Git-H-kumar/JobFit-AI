@@ -7,7 +7,8 @@ const connectToDb = require('./src/config/database');
 connectToDb();
 
 
-app.listen(3000,()=>{
-    console.log("sever has started");
-    
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server has started on port ${PORT}`);
+});
