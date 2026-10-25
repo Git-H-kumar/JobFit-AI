@@ -40,6 +40,7 @@ module.exports.registerUser = async function (req, res){
     res.cookie("token", token, {
         httpOnly: true,
         secure: isProduction, 
+        partitioned: true,
         sameSite: isProduction ? 'none' : 'lax'
     });
 
@@ -80,7 +81,8 @@ module.exports.loginUser = async function(req, res){
     const isProduction = process.env.NODE_ENV === 'production';
     res.cookie('token', token, {
         httpOnly: true,
-        secure: isProduction, 
+        secure: isProduction,
+        partitioned: true,
         sameSite: isProduction ? 'none' : 'lax'
     });
 
